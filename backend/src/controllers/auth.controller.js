@@ -84,7 +84,8 @@ export const logout = (req, res) => {
     res.cookie("jwt", "", {maxAge: 0});
     res.status(200).json({message: 'Logged out successfully'});
  } catch (error) {
-    
+    console.log('Error while logging out', error.message);
+    res.status(500).json({message: 'Internal server error'});
  }
 }
 
@@ -108,3 +109,13 @@ res.status(200).json(updatedUser);
         res.status(500).jsson({message: 'Internal server error'});
     }
 }   
+
+
+export const checkAuth = (req, res) => {
+    try {
+        res.status(200).json(req.user);
+    } catch (error) {
+        console.log('Error while checking auth', error.message);
+        res.status(500).json({message: 'Internal server error'});
+    }
+}
