@@ -57,4 +57,4 @@ res.status(200).json(newMessage);
     }
 }
 
-//Start at 1:26:00
+//Start at 1:26:00 with the video which will now be doing frontend part of the chat application
